@@ -30,10 +30,10 @@ namespace SiteSheets
             dateBlock.Text = DateTime.Now.ToString("MMM d yyyy");
             //Add some data
             persist = new AppPersistance();
-            Contractor con = new Contractor("joe", "blow", "300-200-1111", "san jose", "1134 maudlin");
+            Contractor con = new Contractor("joe", "blow", "300-200-1111", "san jose", "1134 maudlin", "joe@joe.com");
             Employee emp = new Employee("who", "what", "300-111-2222", "mountain view", "1111 street", "who@some.com", 35);
-            Client cli = new Client("jane", "howser", "200-111-2222", "santa clara", "122 bridal street");
-            Client cli2 = new Client("able", "adams", "444-121-2222", "scotts valley", "133 orange street");
+            Client cli = new Client("jane", "howser", "200-111-2222", "santa clara", "122 bridal street", "bill@bill.com");
+            Client cli2 = new Client("able", "adams", "444-121-2222", "scotts valley", "133 orange street", "joe@la.com");
 
             persist.AddContractor(con);
             persist.AddEmployee(emp);
@@ -46,24 +46,27 @@ namespace SiteSheets
         {
             foreach (var item in persist.contractors)
             {
-                contractorComboBox.Items.Add(item.FullName);
+                contractorComboBox.Items.Add(item);
             }
 
             foreach (var item in persist.clients)
             {
-                customerComboBox.Items.Add(item.FullName);
+                customerComboBox.Items.Add(item);
             }
 
             foreach (var item in persist.employees)
             {
-                employeeComboBox.Items.Add(item.FullName);
+                employeeComboBox.Items.Add(item);
             }
         }
 
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //This is super hacky.
+            //This feels gross, but it works. When the app is launched it receives
+            //e. E doesn't update our combobox. Since args e is a string on first launch
+            //we update the combobox with the args for testing. Subsequent navigations
+            //will pass AppPersistance type.
             base.OnNavigatedTo(e);
             if (e.Parameter.GetType() == typeof(System.String))
             {
@@ -79,6 +82,8 @@ namespace SiteSheets
 
         private void addNewContractorButton_Click(object sender, RoutedEventArgs e)
         {
+            //We need to pass parameters to the new page so that the app can properly persist.
+            //It currently isn't using a database (it should in future releases).
             var parameters = new NameEntryParams()
             {
                 Appdata = persist,
@@ -108,6 +113,27 @@ namespace SiteSheets
             };
 
             this.Frame.Navigate(typeof(PersonEntry), parameters);
+        }
+
+        private void confirmHoursButton_Click(object sender, RoutedEventArgs e)
+        {
+            loggedHoursBlock.Text += $"Logged {employeeComboBox.SelectedItem} with {employeeHours.Text} hours.\n";
+        }
+
+        private void contractorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboItem = (Contractor)contractorComboBox.SelectedItem; //has to be converted.
+            string email = comboItem.Email;
+            var infoText = $"{comboItem.FullName}\n{comboItem.PhoneNumber}\n" + email + "\n" + $"{comboItem.StreetAddress}\n{comboItem.City}";
+            informationBlock.Text = infoText;
+        }
+
+        private void customerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboItem = (Client)customerComboBox.SelectedItem; //has to be converted.
+            string email = comboItem.Email;
+            var infoText = $"{comboItem.FullName}\n{comboItem.PhoneNumber}\n" + email + "\n" + $"{comboItem.StreetAddress}\n{comboItem.City}";
+            informationBlock.Text = infoText;
         }
     }
 }

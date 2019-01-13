@@ -48,19 +48,19 @@ namespace SiteSheets
         {
             switch (personType)
             {
-                //todo fix all person types.
                 case PersonType.Employee:
                     var employee = new Employee(firstNameBox.Text, lastNameBox.Text, phoneBox.Text, cityBox.Text, streetAddressBox.Text,
                         emailBox.Text, UInt32.Parse(wageBox.Text)); //if it isn't parsable we crash. This is an alpha.
                     app.AddEmployee(employee);
+                    this.Frame.Navigate(typeof(MainPage), app);
                     break;
                 case PersonType.Contractor:
-                    var contractor = new Contractor(firstNameBox.Text, lastNameBox.Text, phoneBox.Text, cityBox.Text, streetAddressBox.Text);
+                    var contractor = new Contractor(firstNameBox.Text, lastNameBox.Text, phoneBox.Text, cityBox.Text, streetAddressBox.Text, emailBox.Text);
                     app.AddContractor(contractor);
                     this.Frame.Navigate(typeof(MainPage), app);
                     break;
                 case PersonType.Client:
-                    var client = new Client(firstNameBox.Text, lastNameBox.Text, phoneBox.Text, cityBox.Text, streetAddressBox.Text);
+                    var client = new Client(firstNameBox.Text, lastNameBox.Text, phoneBox.Text, cityBox.Text, streetAddressBox.Text, emailBox.Text);
                     app.AddClient(client);
                     this.Frame.Navigate(typeof(MainPage), app);
                     break;

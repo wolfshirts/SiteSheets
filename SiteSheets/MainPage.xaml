@@ -16,34 +16,34 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="115*"/>
-            <RowDefinition Height="116*"/>
-            <RowDefinition Height="117*"/>
-            <RowDefinition Height="54*"/>
-            <RowDefinition Height="486*"/>
-            <RowDefinition Height="13*"/>
-            <RowDefinition Height="18*"/>
-            <RowDefinition Height="62*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="125*"/>
+            <RowDefinition Height="126*"/>
+            <RowDefinition Height="127*"/>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="494*"/>
+            <RowDefinition Height="47*"/>
+
+
         </Grid.RowDefinitions>
-        <TextBlock x:Name="dateBlock" HorizontalAlignment="Center" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="11" Height="15" Width="45" Margin="0,0,0,0"/>
-        <TextBlock x:Name="companyName" HorizontalAlignment="Center" Text="SiteSheets  0.1a" TextWrapping="Wrap" VerticalAlignment="Center"  Grid.Column="2" Height="20" Width="103" Margin="0,0,0,0"/>
-        <StackPanel Grid.Row="1">
+        <TextBlock x:Name="dateBlock" HorizontalAlignment="Center" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="11" Height="15" Width="45"/>
+        <TextBlock x:Name="companyName" HorizontalAlignment="Center" Text="SiteSheets  0.1a" TextWrapping="Wrap" VerticalAlignment="Center"  Grid.Column="2" Height="20" Width="103"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
             <TextBlock x:Name="textBlock" Text="Contractor:" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="contractorComboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <ComboBox x:Name="contractorComboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="contractorComboBox_SelectionChanged"/>
             <Button x:Name="addNewContractorButton" Content="Add New"  HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.Row="1" Click="addNewContractorButton_Click"/>
         </StackPanel>
 
-        <StackPanel  Grid.Row="2" Grid.RowSpan="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+        <StackPanel  Grid.Row="2" Grid.RowSpan="1" Margin="0,0,0,0" >
 
             <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" Grid.Row="2" Text="Customer:" TextWrapping="Wrap" />
-            <ComboBox  x:Name="customerComboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <ComboBox  x:Name="customerComboBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="customerComboBox_SelectionChanged"/>
             <Button x:Name="addNewCustomerButton" Content="Add New" HorizontalAlignment="Right"  VerticalAlignment="Top" Click="addNewCustomerButton_Click"/>
         </StackPanel>
 
-        <TextBlock x:Name="labelWorkCompleted" HorizontalAlignment="Left" Grid.Row="4" Text="Work Completed:" TextWrapping="Wrap" VerticalAlignment="Center" Height="20" Width="115"/>
-        <TextBox x:Name="workCompleted" Grid.Row="5" Grid.ColumnSpan="3" AcceptsReturn="True" Margin="0,0,0,0"/>
-        <StackPanel Grid.Column="0" Grid.Row="3" Margin="0,0,0,0">
+        <TextBlock x:Name="labelWorkCompleted" HorizontalAlignment="Left" Grid.Row="4" Text="Work Completed:" TextWrapping="Wrap" VerticalAlignment="Center"/>
+        <TextBox x:Name="workCompleted" Grid.Row="5" Grid.ColumnSpan="3" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <StackPanel Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel Orientation="Horizontal">
                 <TextBlock x:Name="employee" Text="Employee:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,2,0,2"/>
                 <TextBlock x:Name="hoursEntry" Text="Hours:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,2,0,2"/>
@@ -53,10 +53,13 @@
                 <TextBox x:Name="employeeHours" InputScope="Number" VerticalAlignment="Top" Margin="10,2,0,2"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="confirmHoursButton"  HorizontalAlignment="Stretch" >Confirm</Button>
+                <Button x:Name="confirmHoursButton"  HorizontalAlignment="Stretch" Click="confirmHoursButton_Click" >Confirm</Button>
                 <Button x:Name="addNewEmployeeButton" HorizontalAlignment="Stretch" Click="addNewEmployeeButton_Click">Add New</Button>
             </StackPanel>
         </StackPanel>
+        <TextBlock x:Name="loggedHoursBlock" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" Text="" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
+        <TextBlock x:Name="informationBlock" Grid.Column="2" HorizontalAlignment="Stretch"   Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="2,2,2,2" Grid.RowSpan="1" />
+
 
     </Grid>
 </Page>
