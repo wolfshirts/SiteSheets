@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="SiteSheets.PersonEntry"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SiteSheets"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="firstNameBox" HorizontalAlignment="Stretch" VerticalAlignment="Center" PlaceholderText="First Name" />
+            <TextBox x:Name="lastNameBox" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Center" PlaceholderText="Last Name"/>
+            <TextBox x:Name="emailBox" HorizontalAlignment="Stretch"  Grid.Row="2"  VerticalAlignment="Center" PlaceholderText="E-Mail"/>
+            <TextBox x:Name="phoneBox" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Center" PlaceholderText="Phone Number" InputScope="TelephoneNumber"/>
+            <TextBox x:Name="streetAddressBox" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Center" PlaceholderText="Street Address"/>
+            <TextBox x:Name="cityBox" HorizontalAlignment="Stretch"  Grid.Row="5"  VerticalAlignment="Center" PlaceholderText="City"/>
+            <TextBlock x:Name="firstError" Grid.Column="1" HorizontalAlignment="Left" Text="Required Field" TextWrapping="Wrap" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <TextBlock x:Name="lastError" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="1" Text="Required Field" TextWrapping="Wrap" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <TextBlock x:Name="emailError" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Required Field" TextWrapping="Wrap" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <TextBlock x:Name="phoneError" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" Text="Required Field" TextWrapping="Wrap" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <TextBlock x:Name="streetError" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" Text="Required Field" TextWrapping="Wrap" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <TextBlock x:Name="cityError" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" Text="Required Field" TextWrapping="Wrap" VerticalAlignment="Center" Visibility="Collapsed"/>
+        <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Center"  Grid.Row="6" VerticalAlignment="Top" Grid.ColumnSpan="2" Click="submitButton_Click"/>
+        <TextBox x:Name="wageBox" HorizontalAlignment="Left" VerticalAlignment="Bottom" PlaceholderText="Wage" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>
