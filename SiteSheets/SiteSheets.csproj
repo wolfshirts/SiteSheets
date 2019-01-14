@@ -97,6 +97,9 @@
     </Compile>
     <Compile Include="AppPersistance.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="ConfirmationPage.xaml.cs">
+      <DependentUpon>ConfirmationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Contractor.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -131,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ConfirmationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

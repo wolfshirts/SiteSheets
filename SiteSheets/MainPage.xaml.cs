@@ -23,6 +23,7 @@ namespace SiteSheets
     public sealed partial class MainPage : Page
     {
         AppPersistance persist;
+        Timesheet workingSheet = new Timesheet(null, null, null); //this all gets fixed on the submit.
         
         public MainPage()
         {
@@ -118,6 +119,14 @@ namespace SiteSheets
         private void confirmHoursButton_Click(object sender, RoutedEventArgs e)
         {
             loggedHoursBlock.Text += $"Logged {employeeComboBox.SelectedItem} with {employeeHours.Text} hours.\n";
+            var employee = (Employee)employeeComboBox.SelectedItem;
+            var worked = UInt32.Parse(employeeHours.Text);
+            if (workingSheet.hours.ContainsKey(employee)){
+                workingSheet.hours[employee] += worked;
+            }
+            else {
+                workingSheet.hours.Add(employee, worked);
+            }
         }
 
         private void contractorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -134,6 +143,17 @@ namespace SiteSheets
             string email = comboItem.Email;
             var infoText = $"{comboItem.FullName}\n{comboItem.PhoneNumber}\n" + email + "\n" + $"{comboItem.StreetAddress}\n{comboItem.City}";
             informationBlock.Text = infoText;
+        }
+
+        private void submitButton_Click(object sender, RoutedEventArgs e)
+        {
+            //For now we'll just create a text file to handle the hoursheets.
+            Contractor contractor = (Contractor)contractorComboBox.SelectedItem;
+            Client client = (Client)customerComboBox.SelectedItem;
+            workingSheet.CompletedJobs = workingSheet.ConvertStringToEnterSeparatedList(workCompleted.Text);
+            workingSheet.contractor = contractor;
+            workingSheet.client = client;
+            this.Frame.Navigate(typeof(ConfirmationPage), workingSheet);
         }
     }
 }

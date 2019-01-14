@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace SiteSheets
 {
@@ -29,6 +31,11 @@ namespace SiteSheets
         {
             employees.Add(employee);
             employees.Sort();
+        }
+
+        public void SaveData()
+        {
+            throw new NotImplementedException();
         }
 
     }

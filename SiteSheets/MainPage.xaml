@@ -59,6 +59,7 @@
         </StackPanel>
         <TextBlock x:Name="loggedHoursBlock" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" Text="" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
         <TextBlock x:Name="informationBlock" Grid.Column="2" HorizontalAlignment="Stretch"   Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Stretch" Margin="2,2,2,2" Grid.RowSpan="1" />
+        <Button x:Name="submitButton" Content="Submit" HorizontalAlignment="Center"  Grid.Row="6" VerticalAlignment="Top" Click="submitButton_Click"/>
 
 
     </Grid>
