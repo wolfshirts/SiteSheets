@@ -26,7 +26,7 @@
 
 
         </Grid.RowDefinitions>
-        <TextBlock x:Name="dateBlock" HorizontalAlignment="Center" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="11" Height="15" Width="45"/>
+        <TextBlock x:Name="dateBlock" HorizontalAlignment="Stretch" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="11" />
         <TextBlock x:Name="companyName" HorizontalAlignment="Center" Text="SiteSheets  0.1a" TextWrapping="Wrap" VerticalAlignment="Center"  Grid.Column="2" Height="20" Width="103"/>
         <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
             <TextBlock x:Name="textBlock" Text="Contractor:" TextWrapping="Wrap" HorizontalAlignment="Center"/>

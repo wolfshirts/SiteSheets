@@ -37,7 +37,8 @@ namespace SiteSheets
 
             foreach (KeyValuePair<Employee, uint> pair in hours)
             {
-                employeeData += $"Worker: {pair.Key} Hours: {pair.Value}\n" + sep;
+                decimal pay = pair.Key.Wage * pair.Value;
+                employeeData += $"Worker: {pair.Key} Hours: {pair.Value} Total Pay: {pay}\n" + sep;
             }
             foreach (var item in CompletedJobs)
             {

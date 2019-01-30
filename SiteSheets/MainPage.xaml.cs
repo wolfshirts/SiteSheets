@@ -40,6 +40,7 @@ namespace SiteSheets
             persist.AddEmployee(emp);
             persist.AddClient(cli);
             persist.AddClient(cli2);
+            persist.SaveData();
         }
 
 
